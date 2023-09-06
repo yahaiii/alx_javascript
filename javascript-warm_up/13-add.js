@@ -1,3 +1,3 @@
-function add(a, b) {
+window.add = (a, b) => {
     return a + b;
-}
+  };
