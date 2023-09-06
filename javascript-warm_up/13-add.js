@@ -1,3 +1,3 @@
-window.add = (a, b) => {
+global.add = (a, b) => {
     return a + b;
   };
