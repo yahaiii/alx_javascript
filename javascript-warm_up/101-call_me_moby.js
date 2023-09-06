@@ -3,3 +3,7 @@ function callMeMoby(x, theFunction){
         theFunction();
     }
 }
+
+module.exports = {
+    callMeMoby,
+};
