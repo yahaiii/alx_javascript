@@ -10,7 +10,7 @@ class Rectangle {
 
         // if w or h is 0 or not positive integer, create an empty object
         if (w <= 0 || h <= 0 || w % 1 !== 0 || h % 1 !== 0) {
-            return {};
+            return new Rectangle();
         }
     }
 }
