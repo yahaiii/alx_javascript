@@ -1,10 +1,5 @@
 #!/usr/bin/node
-/**
- * Print a rectangle of X characters with the given width and height.
- *
- * @param {number} width - The width of the rectangle.
- * @param {number} height - The height of the rectangle.
- */
+
 class Rectangle {
     constructor(w, h) {
       if (w <= 0 || h <= 0 || !Number.isInteger(w) || !Number.isInteger(h)) {
@@ -50,5 +45,5 @@ class Rectangle {
     }
   }
   
-  module.exports = Rectangle;
+export default Rectangle
   
