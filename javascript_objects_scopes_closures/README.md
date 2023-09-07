@@ -1,0 +1,1 @@
+This directory contains solutions to the JavaScript - Objects, Scopes and Closures project of the ALX Intro to Software Engineering project
