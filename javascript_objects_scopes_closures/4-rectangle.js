@@ -1,4 +1,4 @@
-class Rectangle {
+class Rectangle:
   constructor(w, h) {
     if (w <= 0 || h <= 0 || !Number.isInteger(w) || !Number.isInteger(h)) {
       // If w or h is <= 0 or not a positive integer, create an empty object
@@ -30,11 +30,17 @@ class Rectangle {
     // Check if both height and width are defined
     if (this.height && this.width) {
       // Loop through each column
-      for (let i = 0; i < this.width; i++) {
+      for (let i = 0; i < this.height; i++) {
         // Print a row of X's with the specified height
         console.log('X'.repeat(this.height));
       }
     }
+  }
+
+  double() {
+    // Double the width and height
+    this.width *= 2;
+    this.height *= 2;
   }
 }
 
