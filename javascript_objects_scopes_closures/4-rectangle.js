@@ -1,3 +1,4 @@
+#!/usr/bin/node
 /**
  * Print a rectangle of X characters with the given width and height.
  *
