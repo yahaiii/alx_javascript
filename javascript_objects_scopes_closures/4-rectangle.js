@@ -35,9 +35,9 @@ class Rectangle {
     rotate() {
       // Check if both height and width are defined
       if (this.height && this.width) {
-        // Loop through each column
+        // Loop through each row
         for (let i = 0; i < this.width; i++) {
-          // Print a row of X's with the specified height
+          // Print a column of X's with the specified height
           console.log('X'.repeat(this.height));
         }
       }
