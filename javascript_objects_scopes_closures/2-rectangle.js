@@ -5,15 +5,17 @@
 
 class Rectangle {
     constructor(w, h) {
+      if (w <= 0 || h <= 0 || !Number.isInteger(w) || !Number.isInteger(h)) {
+        // If w or h is <= 0 or not a positive integer, create an empty object
+        this.width = undefined;
+        this.height = undefined;
+      } else {
+        // Initialize width and height attributes with the provided values
         this.width = w;
         this.height = h;
-
-        // if w or h is 0 or not positive integer, create an empty object
-        if (w <= 0 || h <= 0 || w % 1 !== 0 || h % 1 !== 0) {
-            return new Rectangle();
-        }
+      }
     }
-}
+  }
 
 
 
