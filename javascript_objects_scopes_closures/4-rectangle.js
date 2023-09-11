@@ -35,9 +35,6 @@ class Rectangle {
     this.width = this.height;
     this.height = originalWidth;
 
-    // Print the rectangle
-    this.print();
-
     // Restore the width and height attributes to their original values
     this.width = originalWidth;
     this.height = originalHeight;
