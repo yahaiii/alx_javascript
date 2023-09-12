@@ -32,8 +32,8 @@ class Rectangle {
     const originalHeight = this.height;
 
     // Set the width and height attributes to the height and width, respectively
-    width = originalHeight;
-    height = originalWidth;
+    const width = originalHeight;
+    const height = originalWidth;
 
     // Restore the width and height attributes to their original values
     this.width = width;
