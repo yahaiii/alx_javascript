@@ -32,12 +32,12 @@ class Rectangle {
     const originalHeight = this.height;
 
     // Set the width and height attributes to the height and width, respectively
-    this.width = this.height;
-    this.height = originalWidth;
+    width = originalHeight;
+    height = originalWidth;
 
     // Restore the width and height attributes to their original values
-    this.width = originalWidth;
-    this.height = originalHeight;
+    this.width = width;
+    this.height = height;
   }
 
   double() {
