@@ -28,7 +28,7 @@ async function countFilmsWithWedgeAntilles(url) {
 
         // Filter movies with Wedge Antilles
         const filmsWithWedgeAntilles = films.results.filter((film) => {
-            return film.characters.includes(`http://swapi-api.co/api/people/${characterId}/`);
+            return film.characters.includes(`https://swapi-api.alx-tools.com/api/people/${characterId}/`);
         });
 
         console.log(filmsWithWedgeAntilles.length);
