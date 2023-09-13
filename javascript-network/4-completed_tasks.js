@@ -1,29 +1,41 @@
 const request = require('request');
 
-const url = process.argv[2];
+const apiUrl = process.argv[2]; // API URL for todos
 
-//only print users with completed tasks
-if (!url) {
-    console.error('Please enter a valid URL');
+// Make a GET request to fetch the todos data
+request.get(apiUrl, (error, response, body) => {
+  if (error) {
+    console.error('Error:', error.message);
     process.exit(1);
-}
+  }
 
-request.get(url, (error, response, body) => {
-    if (error) {
-        console.error('Error:', error.message);
-        process.exit(1);
-    }
+  if (response.statusCode !== 200) {
+    console.error('Failed to fetch data. Status code:', response.statusCode);
+    process.exit(1);
+  }
 
-    if (response.statusCode !== 200) {
-        console.error('Failed to fetch content. Status code:', response.statusCode);
-        process.exit(1);
-    }
+  try {
+    const todos = JSON.parse(body);
 
-    //only print users with completed tasks
-    const users = JSON.parse(body);
-    users.forEach((user) => {
-        if (user.completed) {
-            console.log(user);
-        }
-    })
-})
+    // Create an object to store the count of completed tasks by user ID
+    const completedTaskCounts = {};
+
+    // Iterate through the todos and count completed tasks by user ID
+    todos.forEach((todo) => {
+      if (todo.completed) {
+        const userId = todo.userId;
+
+        // Increment the count for the user ID
+        completedTaskCounts[userId] = (completedTaskCounts[userId] || 0) + 1;
+      }
+    });
+
+    // Print the users with completed tasks and the number of tasks completed
+    Object.keys(completedTaskCounts).forEach((userId) => {
+      console.log(`'${userId}': ${completedTaskCounts[userId]}`);
+    });
+  } catch (parseError) {
+    console.error('Error parsing JSON response:', parseError.message);
+    process.exit(1);
+  }
+});
