@@ -30,10 +30,15 @@ request.get(apiUrl, (error, response, body) => {
       }
     });
 
+    const result = {};
+
     // Print the users with completed tasks and the number of tasks completed
     Object.keys(completedTaskCounts).forEach((userId) => {
-      console.log(`'${userId}': ${completedTaskCounts[userId]}`);
+        result[userId] = completedTaskCounts[userId];
     });
+
+    console.log(result);
+
   } catch (parseError) {
     console.error('Error parsing JSON response:', parseError.message);
     process.exit(1);
