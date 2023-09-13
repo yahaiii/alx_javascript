@@ -24,11 +24,14 @@ function fetchData(url) {
 async function countFilmsWithWedgeAntilles(url) {
     try {
         const films = await fetchData(url);
-        const characterId =  18; // Wedge Antilles
+        const characterId =  '18'; // Wedge Antilles
 
         // Filter movies with Wedge Antilles
         const filmsWithWedgeAntilles = films.results.filter((film) => {
-            return film.characters.includes(`https://swapi-api.alx-tools.com/api/people/${characterId}/`);
+            return film.characters.some(characterUrl => {
+                const characterIdMatch = characterUrl.match(/\/(\d+)\/$/);
+                return characterIdMatch && characterIdMatch[1] === characterId;
+            });
         });
 
         console.log(filmsWithWedgeAntilles.length);
