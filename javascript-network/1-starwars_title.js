@@ -22,7 +22,7 @@ response = request.get(api, (error, response, body) => {
 
     try {
         const movie = JSON.parse(body);
-        console.log(`Title: ${movie.title}`);
+        console.log(movie.title);
     } catch (parseError) {
         console.error('Error parsing JSON response:', parseError.message);
         process.exit(1);
