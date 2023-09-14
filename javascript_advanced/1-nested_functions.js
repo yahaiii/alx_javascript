@@ -1,5 +1,3 @@
-const alert = require('alert');
-
 
 const globalVariable  = 'Welcome';
 
