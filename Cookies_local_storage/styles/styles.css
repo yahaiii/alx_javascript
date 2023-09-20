@@ -1,0 +1,52 @@
+/* Reset default margin and padding */
+body, h1, h2, p, input, button {
+    margin: 0;
+    padding: 0;
+}
+
+/* Container for form elements */
+.container {
+    text-align: center;
+    background-color: #f0f0f0; /* Background color */
+    padding: 20px;
+    margin-top: 15px;
+    width: 70%; /* Container is 70% of the entire width */
+    max-width: 400px; /* Maximum width */
+    margin: 0 auto; /* Center the container horizontally */
+}
+
+/* Style text inputs */
+input[type="text"] {
+    width: 80%; /* Inputs are 80% of the container width */
+    padding: 10px;
+    margin: 10px 0; /* Add margin to separate inputs */
+    border: none;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Style the button */
+button {
+    width: 80%; /* Button is 80% of the container width */
+    background-color: #007bff; /* Button color */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    cursor: pointer;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin: 10px 0; /* Add margin to separate the button from inputs */
+}
+
+/* Hover effect for the button */
+button:hover {
+    background-color: #0056b3; /* Darker color on hover */
+}
+
+.cookie-paragraph {
+    background-color: #f0f0f0;
+    padding: 10px;
+    border-radius: 5px;
+    margin-top: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
