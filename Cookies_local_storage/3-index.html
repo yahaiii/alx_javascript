@@ -42,6 +42,9 @@
             // Set cookies with the expiration date
             document.cookie = `firstname=${firstnameValue}; expires=${expires}`;
             document.cookie = `email=${emailValue}; expires=${expires}`;
+            
+            // Show the welcome message with the user's firstname and hide the form
+            showWelcomeMessageOrForm();
         }
 
         function getCookie(name) {
