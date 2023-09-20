@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cookies 1</title>
+    <title>Cookies 2</title>
     <link rel="stylesheet" href="styles/styles.css" type="text/css">
 </head>
 <body>
@@ -35,9 +35,23 @@
             document.cookie = `email=${emailValue}; expires=${expires}`;
         }
 
+        function getCookie(name) {
+            const cookies = document.cookie.split(';');
+            for (const cookie of cookies) {
+                const [cookieName, cookieValue] = cookie.trim().split('=');
+                if (cookieName === name) {
+                    return cookieValue;
+                }
+            }
+            return ''; // Return an empty string if the cookie is not found
+        }
+
         function showCookies() {
+            const email = getCookie('email');
+            const firstname = getCookie('firstname');
+            
             const p = document.createElement("p");
-            p.innerHTML = "Cookies: " + document.cookie;
+            p.innerHTML = `Email: ${email} - Firstname: ${firstname}`;
             p.classList.add("cookie-paragraph"); // Add a CSS class to the <p> tag
             document.body.appendChild(p);
         }

@@ -44,9 +44,13 @@ button:hover {
 }
 
 .cookie-paragraph {
-    background-color: #f0f0f0;
+    background-color: #acc8ff;
     padding: 10px;
     border-radius: 5px;
-    margin-top: 10px;
+    margin-top: 15px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    padding-top: 15px;
+    margin: 0 auto;
+    text-align: center;
+    width: fit-content;
 }
