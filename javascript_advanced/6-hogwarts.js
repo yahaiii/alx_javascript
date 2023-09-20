@@ -35,5 +35,10 @@ const studentHogwarts = (function () {
   draco.rewardStudent();
   draco.penalizeStudent();
   draco.penalizeStudent();
+  draco.penalizeStudent();
+  draco.penalizeStudent();
+  draco.penalizeStudent();
+  draco.penalizeStudent();
+  draco.penalizeStudent();
   console.log(draco.getScore()); // Output: Draco: -2
   
