@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cookies 4</title>
+    <link rel="stylesheet" href="styles/styles.css" type="text/css">
+    <script src="https://cdn.jsdelivr.net/npm/js-cookie@3.0.5/dist/js.cookie.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <h1>Cookies</h1>
+
+        <!-- Button to show the login form -->
+        <button onclick="showWelcomeMessageOrForm()">Show Welcome Message or Form</button>
+
+        <!-- Div for the login form (initially hidden) -->
+        <div id="loginForm" style="display: none;">
+            <h2>Login</h2>
+            <input type="text" id="firstname" placeholder="First Name">
+            <input type="text" id="email" placeholder="Email">
+            <button onclick="setCookiesAndShowWelcomeMessage()">Log me in</button>
+        </div>
+
+        <!-- Welcome message (initially hidden) -->
+        <h1 id="welcomeMessage" style="display: none;"></h1>
+    </div>
+
+    <script>
+        // Function to delete cookies and show the login form
+        function deleteCookiesAndShowForm() {
+            // Delete the "firstname" and "email" cookies using js-cookie's remove function
+            Cookies.remove('firstname');
+            Cookies.remove('email');
+            
+            // Show the login form
+            showForm();
+        }
+
+        // Function to show the login form
+        function showForm() {
+            const loginForm = document.getElementById("loginForm");
+            const welcomeMessage = document.getElementById("welcomeMessage");
+            
+            if (welcomeMessage.style.display !== "none") {
+                welcomeMessage.style.display = "none";
+            }
+            loginForm.style.display = "block";
+        }
+
+        function showWelcomeMessageOrForm() {
+            // Clear the existing welcome message if it exists
+            const welcomeMessage = document.getElementById("welcomeMessage");
+            welcomeMessage.textContent = '';
+            
+            const firstname = Cookies.get('firstname');
+
+            if (firstname) {
+                console.log('User is logged in.'); // Debugging statement
+                const loginForm = document.getElementById("loginForm");
+
+                // Hide the form
+                loginForm.style.display = "none";
+
+                // Show the welcome message
+                welcomeMessage.textContent = `Welcome: ${firstname} `;
+                const logoutLink = document.createElement("a");
+                logoutLink.textContent = "(logout)";
+                logoutLink.style.fontStyle = "italic";
+                logoutLink.style.marginLeft = "10px";
+                logoutLink.style.cursor = "pointer";
+
+                // Handle logout on click
+                logoutLink.addEventListener("click", () => {
+                    deleteCookiesAndShowForm();
+                    welcomeMessage.style.display = "none";
+                    showForm();
+                });
+
+                welcomeMessage.appendChild(logoutLink);
+                welcomeMessage.style.display = "block";
+            } else {
+                console.log('User is not logged in.'); // Debugging statement
+                // User is not logged in
+                showForm();
+            }
+        }
+
+        // Function to set cookies and show the welcome message
+        function setCookiesAndShowWelcomeMessage() {
+            const firstnameValue = document.getElementById("firstname").value;
+            const emailValue = document.getElementById("email").value;
+
+            // Get the current date and time
+            const currentDate = new Date();
+
+            // Calculate the expiration date (10 days from the current date)
+            currentDate.setDate(currentDate.getDate() + 10);
+
+            // Set cookies with js-cookie's set function
+            Cookies.set('firstname', firstnameValue, { expires: 10 });
+            Cookies.set('email', emailValue, { expires: 10 });
+
+            // Clear the existing welcome message and show the welcome message or form
+            const welcomeMessage = document.getElementById("welcomeMessage");
+            welcomeMessage.textContent = '';
+            showWelcomeMessageOrForm();
+        }
+    </script>
+</body>
+</html>
