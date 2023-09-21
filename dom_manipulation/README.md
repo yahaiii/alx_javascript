@@ -1,0 +1,1 @@
+This directory contains the solutions of the tasks of the JavaScript DOM Manipulation project of ALX Intro to Software Engineering program, Cohort 00.
