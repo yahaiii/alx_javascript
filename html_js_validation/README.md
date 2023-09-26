@@ -1,0 +1,1 @@
+Directory contains the solutions to the HTML Form + JS Validation project of the ALX Intro to Software Engineering program
